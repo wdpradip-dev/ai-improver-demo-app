@@ -1,8 +1,16 @@
+import os
 import streamlit as st
+from dotenv import load_dotenv
 from groq import Groq
 
+# Load environment variables
+load_dotenv()
+
+# Get API key
+groq_api_key = os.getenv("GROQ_API_KEY")
+
 # Replace with your actual API key
-client = Groq(api_key="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")
+client = Groq(api_key=groq_api_key)
 
 def improve_text(text):
     prompt = f"Improve this text and correct grammar:\n\n{text}"
